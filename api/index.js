@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { createServer } = require("http");
 // auth middleware require
-const { auth } = require("express-oauth2-bearer");
+const { auth, required  Scopes } = require("express-oauth2-bearer");
 const {
   checkUrl,
   APP_URL, // Public URL for this app
@@ -52,7 +52,7 @@ app.get("/total", (req, res) => {
 // placed above routes that need auth0 access
 app.use(auth());
 
-app.get("/reports", (req, res) => {
+app.get("/reports", requiredScopes('read:reports'), (req, res) => {
   res.send(expenses);
 });
 
