@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { createServer } = require("http");
 // auth middleware require
-const { auth, required  Scopes } = require("express-oauth2-bearer");
+const { auth, requiredScopes } = require("express-oauth2-bearer");
 const {
   checkUrl,
   APP_URL, // Public URL for this app
